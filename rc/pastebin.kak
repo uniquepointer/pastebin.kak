@@ -1,25 +1,25 @@
-define-command pasters %{
+define-command -hidden pasters %{
     set-register dquote %sh{
         echo "$kak_selections" | curl --data-binary @- https://paste.rs/
         }
         execute-keys ':echo Link in clipboard!<ret>'
 }
 
-define-command ixio %{
+define-command -hidden ixio %{
     set-register dquote %sh{
         echo "$kak_selections" | curl -F "f:1=<-" ix.io
         }
         execute-keys ':echo Link in clipboard!<ret>'
 }
 
-define-command dpaste %{
+define-command -hidden dpaste %{
     set-register dquote %sh{
         echo "$kak_selections" | curl -F "format=url" -F "content=<-" https://dpaste.org/api/
         }
         execute-keys ':echo Link in clipboard!<ret>'
 }
 
-define-command dpastemozilla %{
+define-command -hidden dpastemozilla %{
     set-register dquote %sh{
         echo "$kak_selections" | curl -F "format=url" -F "content=<-" https://paste.mozilla.org/api/
         }
